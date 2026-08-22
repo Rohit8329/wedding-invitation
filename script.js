@@ -1,259 +1,60 @@
 /* =========================================================
-   ROHAN & NIKITA
-   PREMIUM ENGAGEMENT INVITATION
-   FINAL JAVASCRIPT
+   WEDDING INVITATION
+   MAIN JAVASCRIPT
    ========================================================= */
 
 
 /* =========================================================
-   MAIN CONFIGURATION
-   ========================================================= */
-
-const CONFIG = {
-
-    /* -----------------------------------------------------
-       COUPLE
-       ----------------------------------------------------- */
-
-    groom: "Rohan",
-
-    bride: "Nikita",
-
-
-    /* -----------------------------------------------------
-       FAMILIES
-       ----------------------------------------------------- */
-
-    groomParents:
-        "Mr. Mahadeo Gund-Patil & Mrs. Lata Gund-Patil",
-
-    brideParents:
-        "Late. Shantilal Patil & Mrs. Lalita Patil",
-
-
-    /* -----------------------------------------------------
-       ENGAGEMENT DATE
-       ----------------------------------------------------- */
-
-    engagementDateISO:
-        "2026-08-30T12:00:00+05:30",
-
-    engagementDateDisplay:
-        "30 August 2026",
-
-
-    /* -----------------------------------------------------
-       PHOTOGRAPHS
-       ----------------------------------------------------- */
-
-    couplePhoto:
-        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=85",
-
-    storyImage:
-        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85",
-
-
-    /* -----------------------------------------------------
-       STORY
-       ----------------------------------------------------- */
-
-    storyText:
-        "Two beautiful journeys are coming together as Rohan and Nikita take the next step in their journey of love. With the blessings of their families and loved ones, they are delighted to celebrate this beautiful beginning with everyone who has been a part of their lives.",
-
-
-    /* -----------------------------------------------------
-       EVENTS
-       ----------------------------------------------------- */
-
-    events: [
-
-        {
-            name:
-                "Engagement Ceremony",
-
-            date:
-                "Sunday, 30 August 2026",
-
-            time:
-                "12:00 PM",
-
-            venue:
-                "Engagement Ceremony",
-
-            address:
-                "Maharashtra, India",
-
-            mapUrl:
-                "https://maps.google.com/?q=Maharashtra",
-
-            dressCode:
-                "Traditional / Festive Attire"
-        }
-
-    ],
-
-
-    /* -----------------------------------------------------
-       GALLERY
-       ----------------------------------------------------- */
-
-    gallery: [
-
-        "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85",
-
-        "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=85",
-
-        "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=85",
-
-        "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=85",
-
-        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85",
-
-        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85"
-
-    ],
-
-
-    /* -----------------------------------------------------
-       WHATSAPP
-       ----------------------------------------------------- */
-
-    whatsappNumber:
-        "918329007550",
-
-    rsvpMessage:
-        "Namaskar! I would love to attend the engagement celebration of Rohan & Nikita. Looking forward to celebrating this beautiful occasion with you.",
-
-
-    /* -----------------------------------------------------
-       PHONE
-       ----------------------------------------------------- */
-
-    callNumber:
-        "tel:+918329007550",
-
-
-    /* -----------------------------------------------------
-       HASHTAG
-       ----------------------------------------------------- */
-
-    hashtag:
-        "#RohanNikitaEngagement",
-
-
-    /* -----------------------------------------------------
-       GUEST INFORMATION
-       ----------------------------------------------------- */
-
-    guestInfo: [
-
-        {
-            icon: "✦",
-
-            title:
-                "Dress Code",
-
-            desc:
-                "Traditional or festive attire."
-        },
-
-        {
-            icon: "❖",
-
-            title:
-                "Blessings",
-
-            desc:
-                "Your presence and blessings are the greatest gift to Rohan and Nikita."
-        },
-
-        {
-            icon: "✧",
-
-            title:
-                "Gifts",
-
-            desc:
-                "Your presence is our biggest blessing. No boxed gifts are necessary."
-        }
-
-    ],
-
-
-    /* -----------------------------------------------------
-       BACKGROUND MUSIC
-       ----------------------------------------------------- */
-
-    /*
-       Put your music file here:
-
-       assets/music.mp3
-
-       Example:
-
-       musicUrl: "assets/music.mp3"
-
-       Keep empty if you don't want music.
-    */
-
-    musicUrl:
-        ""
-
-};
-
-
-/* =========================================================
-   GLOBAL MUSIC STATE
+   GLOBAL STATE
    ========================================================= */
 
 let musicPlaying = false;
+
+let revealObserver = null;
 
 
 /* =========================================================
    DOM READY
    ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-        console.log(
-            "Rohan & Nikita invitation loaded."
-        );
+    console.log(
+        `${WEDDING.groom} & ${WEDDING.bride} invitation loaded.`
+    );
 
 
-        populateCoupleNames();
+    populateCoupleNames();
 
-        populateDates();
+    populateDates();
 
-        populateFamilies();
+    populateFamilies();
 
-        populatePhotos();
+    populatePhotos();
 
-        populateStory();
+    populateStory();
 
-        populateHashtag();
+    populateHashtag();
 
-        populateRSVP();
+    populateRSVP();
 
-        renderEvents();
+    renderEvents();
 
-        renderGallery();
+    renderGallery();
 
-        renderGuestInfo();
+    renderGuestInfo();
 
-        initCountdown();
+    initCountdown();
 
-        initMusic();
+    initMusic();
 
-        initOpeningScreen();
+    initOpeningScreen();
 
-        initModals();
+    initModals();
 
-        initRevealAnimations();
+    initRevealAnimations();
 
-    }
-);
+});
 
 
 /* =========================================================
@@ -264,64 +65,48 @@ function populateCoupleNames() {
 
     const groomElements = [
 
-        document.getElementById(
-            "opening-groom"
-        ),
+        document.getElementById("opening-groom"),
 
-        document.getElementById(
-            "hero-groom"
-        ),
+        document.getElementById("hero-groom"),
 
-        document.getElementById(
-            "footer-groom"
-        )
+        document.getElementById("footer-groom")
 
     ];
 
 
-    groomElements.forEach(
-        (element) => {
+    groomElements.forEach((element) => {
 
-            if (element) {
+        if (element) {
 
-                element.textContent =
-                    CONFIG.groom;
-
-            }
+            element.textContent =
+                WEDDING.groom;
 
         }
-    );
+
+    });
 
 
     const brideElements = [
 
-        document.getElementById(
-            "opening-bride"
-        ),
+        document.getElementById("opening-bride"),
 
-        document.getElementById(
-            "hero-bride"
-        ),
+        document.getElementById("hero-bride"),
 
-        document.getElementById(
-            "footer-bride"
-        )
+        document.getElementById("footer-bride")
 
     ];
 
 
-    brideElements.forEach(
-        (element) => {
+    brideElements.forEach((element) => {
 
-            if (element) {
+        if (element) {
 
-                element.textContent =
-                    CONFIG.bride;
-
-            }
+            element.textContent =
+                WEDDING.bride;
 
         }
-    );
+
+    });
 
 }
 
@@ -333,21 +118,17 @@ function populateCoupleNames() {
 function populateDates() {
 
     const openingDate =
-        document.getElementById(
-            "opening-date"
-        );
+        document.getElementById("opening-date");
 
 
     const heroDate =
-        document.getElementById(
-            "hero-date"
-        );
+        document.getElementById("hero-date");
 
 
     if (openingDate) {
 
         openingDate.textContent =
-            CONFIG.engagementDateDisplay;
+            WEDDING.engagementDateDisplay;
 
     }
 
@@ -355,7 +136,7 @@ function populateDates() {
     if (heroDate) {
 
         heroDate.textContent =
-            CONFIG.engagementDateDisplay;
+            WEDDING.engagementDateDisplay;
 
     }
 
@@ -369,22 +150,20 @@ function populateDates() {
 function populateFamilies() {
 
     const groomParents =
-        document.getElementById(
-            "groom-parents"
-        );
+        document.getElementById("groom-parents");
 
 
     const brideParents =
-        document.getElementById(
-            "bride-parents"
-        );
+        document.getElementById("bride-parents");
 
 
     if (groomParents) {
 
         groomParents.innerHTML =
-            CONFIG.groomParents.replace(
-                " & ",
+            escapeHTML(
+                WEDDING.groomParents
+            ).replace(
+                " &amp; ",
                 "<br>&<br>"
             );
 
@@ -394,8 +173,10 @@ function populateFamilies() {
     if (brideParents) {
 
         brideParents.innerHTML =
-            CONFIG.brideParents.replace(
-                " & ",
+            escapeHTML(
+                WEDDING.brideParents
+            ).replace(
+                " &amp; ",
                 "<br>&<br>"
             );
 
@@ -411,24 +192,20 @@ function populateFamilies() {
 function populatePhotos() {
 
     const couplePhoto =
-        document.getElementById(
-            "couple-photo"
-        );
+        document.getElementById("couple-photo");
 
 
     const storyImage =
-        document.getElementById(
-            "story-image"
-        );
+        document.getElementById("story-image");
 
 
     if (couplePhoto) {
 
         couplePhoto.src =
-            CONFIG.couplePhoto;
+            WEDDING.couplePhoto;
 
         couplePhoto.alt =
-            `${CONFIG.groom} & ${CONFIG.bride}`;
+            `${WEDDING.groom} & ${WEDDING.bride}`;
 
     }
 
@@ -436,10 +213,10 @@ function populatePhotos() {
     if (storyImage) {
 
         storyImage.src =
-            CONFIG.storyImage;
+            WEDDING.storyImage;
 
         storyImage.alt =
-            `${CONFIG.groom} & ${CONFIG.bride} story`;
+            `${WEDDING.groom} & ${WEDDING.bride} story`;
 
     }
 
@@ -461,7 +238,7 @@ function populateStory() {
     if (storyText) {
 
         storyText.textContent =
-            CONFIG.storyText;
+            WEDDING.storyText;
 
     }
 
@@ -475,15 +252,13 @@ function populateStory() {
 function populateHashtag() {
 
     const hashtag =
-        document.getElementById(
-            "hashtag"
-        );
+        document.getElementById("hashtag");
 
 
     if (hashtag) {
 
         hashtag.textContent =
-            CONFIG.hashtag;
+            WEDDING.hashtag;
 
     }
 
@@ -491,7 +266,7 @@ function populateHashtag() {
 
 
 /* =========================================================
-   RSVP LINKS
+   RSVP
    ========================================================= */
 
 function populateRSVP() {
@@ -510,10 +285,14 @@ function populateRSVP() {
 
     if (whatsappButton) {
 
-        whatsappButton.href =
-            `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(
-                CONFIG.rsvpMessage
+        const whatsappURL =
+            `https://wa.me/${WEDDING.whatsappNumber}?text=${encodeURIComponent(
+                WEDDING.rsvpMessage
             )}`;
+
+
+        whatsappButton.href =
+            whatsappURL;
 
         whatsappButton.target =
             "_blank";
@@ -527,7 +306,7 @@ function populateRSVP() {
     if (callButton) {
 
         callButton.href =
-            CONFIG.callNumber;
+            WEDDING.callNumber;
 
     }
 
@@ -556,56 +335,59 @@ function renderEvents() {
     container.innerHTML = "";
 
 
-    CONFIG.events.forEach(
-        (event) => {
+    if (
+        !Array.isArray(WEDDING.events)
+    ) {
 
-            const card =
-                document.createElement(
-                    "div"
-                );
+        return;
 
-
-            card.className =
-                "event-card reveal";
+    }
 
 
-            card.innerHTML = `
+    WEDDING.events.forEach((event) => {
 
-                <h3>
-                    ${escapeHTML(event.name)}
-                </h3>
-
-                <p class="event-date">
-                    ${escapeHTML(event.date)}
-                </p>
-
-                <p class="event-time">
-                    ${escapeHTML(event.time)}
-                </p>
-
-                <p class="event-action">
-                    View complete details →
-                </p>
-
-            `;
+        const card =
+            document.createElement("div");
 
 
-            card.addEventListener(
-                "click",
-                () => {
-
-                    openEventModal(event);
-
-                }
-            );
+        card.className =
+            "event-card reveal";
 
 
-            container.appendChild(
-                card
-            );
+        card.innerHTML = `
 
-        }
-    );
+            <h3>
+                ${escapeHTML(event.name)}
+            </h3>
+
+            <p class="event-date">
+                ${escapeHTML(event.date)}
+            </p>
+
+            <p class="event-time">
+                ${escapeHTML(event.time)}
+            </p>
+
+            <p class="event-action">
+                View complete details →
+            </p>
+
+        `;
+
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                openEventModal(event);
+
+            }
+        );
+
+
+        container.appendChild(card);
+
+    });
 
 }
 
@@ -632,13 +414,20 @@ function renderGallery() {
     container.innerHTML = "";
 
 
-    CONFIG.gallery.forEach(
+    if (
+        !Array.isArray(WEDDING.gallery)
+    ) {
+
+        return;
+
+    }
+
+
+    WEDDING.gallery.forEach(
         (src, index) => {
 
             const item =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
 
             item.className =
@@ -646,41 +435,48 @@ function renderGallery() {
 
 
             const image =
-                document.createElement(
-                    "img"
-                );
+                document.createElement("img");
 
 
             image.src =
                 src;
 
+
             image.alt =
-                `${CONFIG.groom} & ${CONFIG.bride} - Memory ${index + 1}`;
+                `${WEDDING.groom} & ${WEDDING.bride} - Memory ${index + 1}`;
+
 
             image.loading =
                 "lazy";
 
 
+            image.addEventListener(
+                "error",
+                () => {
+
+                    console.warn(
+                        `Gallery image could not be loaded: ${src}`
+                    );
+
+                }
+            );
+
+
             const overlay =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
 
             overlay.className =
                 "gallery-overlay";
 
+
             overlay.innerHTML =
                 "⊕";
 
 
-            item.appendChild(
-                image
-            );
+            item.appendChild(image);
 
-            item.appendChild(
-                overlay
-            );
+            item.appendChild(overlay);
 
 
             item.addEventListener(
@@ -693,9 +489,7 @@ function renderGallery() {
             );
 
 
-            container.appendChild(
-                item
-            );
+            container.appendChild(item);
 
         }
     );
@@ -725,42 +519,45 @@ function renderGuestInfo() {
     container.innerHTML = "";
 
 
-    CONFIG.guestInfo.forEach(
-        (info) => {
+    if (
+        !Array.isArray(WEDDING.guestInfo)
+    ) {
 
-            const card =
-                document.createElement(
-                    "div"
-                );
+        return;
 
-
-            card.className =
-                "info-card reveal";
+    }
 
 
-            card.innerHTML = `
+    WEDDING.guestInfo.forEach((info) => {
 
-                <span>
-                    ${escapeHTML(info.icon)}
-                </span>
-
-                <h3>
-                    ${escapeHTML(info.title)}
-                </h3>
-
-                <p>
-                    ${escapeHTML(info.desc)}
-                </p>
-
-            `;
+        const card =
+            document.createElement("div");
 
 
-            container.appendChild(
-                card
-            );
+        card.className =
+            "info-card reveal";
 
-        }
-    );
+
+        card.innerHTML = `
+
+            <span>
+                ${escapeHTML(info.icon)}
+            </span>
+
+            <h3>
+                ${escapeHTML(info.title)}
+            </h3>
+
+            <p>
+                ${escapeHTML(info.desc)}
+            </p>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
 
 }
 
@@ -773,38 +570,28 @@ function initCountdown() {
 
     const targetDate =
         new Date(
-            CONFIG.engagementDateISO
+            WEDDING.engagementDateISO
         ).getTime();
 
 
     const days =
-        document.getElementById(
-            "cd-days"
-        );
+        document.getElementById("cd-days");
 
 
     const hours =
-        document.getElementById(
-            "cd-hours"
-        );
+        document.getElementById("cd-hours");
 
 
     const minutes =
-        document.getElementById(
-            "cd-minutes"
-        );
+        document.getElementById("cd-minutes");
 
 
     const seconds =
-        document.getElementById(
-            "cd-seconds"
-        );
+        document.getElementById("cd-seconds");
 
 
     const countdown =
-        document.getElementById(
-            "countdown"
-        );
+        document.getElementById("countdown");
 
 
     const expired =
@@ -892,9 +679,7 @@ function initCountdown() {
         if (days) {
 
             days.textContent =
-                String(
-                    dayValue
-                ).padStart(
+                String(dayValue).padStart(
                     2,
                     "0"
                 );
@@ -905,9 +690,7 @@ function initCountdown() {
         if (hours) {
 
             hours.textContent =
-                String(
-                    hourValue
-                ).padStart(
+                String(hourValue).padStart(
                     2,
                     "0"
                 );
@@ -918,9 +701,7 @@ function initCountdown() {
         if (minutes) {
 
             minutes.textContent =
-                String(
-                    minuteValue
-                ).padStart(
+                String(minuteValue).padStart(
                     2,
                     "0"
                 );
@@ -931,9 +712,7 @@ function initCountdown() {
         if (seconds) {
 
             seconds.textContent =
-                String(
-                    secondValue
-                ).padStart(
+                String(secondValue).padStart(
                     2,
                     "0"
                 );
@@ -1017,44 +796,41 @@ function initOpeningScreen() {
             }
 
 
-            setTimeout(
-                () => {
+            setTimeout(() => {
 
-                    if (opening) {
+                if (opening) {
 
-                        opening.classList.add(
-                            "hidden"
-                        );
+                    opening.classList.add(
+                        "hidden"
+                    );
 
-                    }
-
-
-                    if (main) {
-
-                        main.classList.remove(
-                            "hidden"
-                        );
-
-                    }
+                }
 
 
-                    if (musicButton) {
+                if (main) {
 
-                        musicButton.classList.remove(
-                            "hidden"
-                        );
+                    main.classList.remove(
+                        "hidden"
+                    );
 
-                    }
-
-
-                    startMusic();
+                }
 
 
-                    initRevealAnimations();
+                if (musicButton) {
 
-                },
-                900
-            );
+                    musicButton.classList.remove(
+                        "hidden"
+                    );
+
+                }
+
+
+                startMusic();
+
+
+                initRevealAnimations();
+
+            }, 900);
 
         }
     );
@@ -1087,10 +863,10 @@ function initMusic() {
     }
 
 
-    if (CONFIG.musicUrl) {
+    if (WEDDING.musicUrl) {
 
         audio.src =
-            CONFIG.musicUrl;
+            WEDDING.musicUrl;
 
         audio.loop =
             true;
@@ -1101,11 +877,17 @@ function initMusic() {
     }
 
 
+    updateMusicButton(
+        button,
+        false
+    );
+
+
     button.addEventListener(
         "click",
         () => {
 
-            if (!CONFIG.musicUrl) {
+            if (!WEDDING.musicUrl) {
 
                 console.warn(
                     "No music file configured."
@@ -1123,9 +905,11 @@ function initMusic() {
                 musicPlaying =
                     false;
 
+
                 button.classList.remove(
                     "playing"
                 );
+
 
                 updateMusicButton(
                     button,
@@ -1164,7 +948,7 @@ function startMusic() {
 
     if (
         !audio ||
-        !CONFIG.musicUrl
+        !WEDDING.musicUrl
     ) {
 
         return;
@@ -1173,44 +957,41 @@ function startMusic() {
 
 
     audio.play()
-        .then(
-            () => {
+        .then(() => {
 
-                musicPlaying =
-                    true;
+            musicPlaying =
+                true;
 
 
-                if (button) {
+            if (button) {
 
-                    button.classList.add(
-                        "playing"
-                    );
+                button.classList.add(
+                    "playing"
+                );
 
-                    updateMusicButton(
-                        button,
-                        true
-                    );
 
-                }
-
-            }
-        )
-        .catch(
-            (error) => {
-
-                console.log(
-                    "Music playback was blocked:",
-                    error
+                updateMusicButton(
+                    button,
+                    true
                 );
 
             }
-        );
+
+        })
+        .catch((error) => {
+
+            console.log(
+                "Music playback was blocked:",
+                error
+            );
+
+        });
 
 }
 
 
 /* =========================================================
-   MUSIC BUTTON ACCESSIBILITY
+   MUSIC ACCESSIBILITY
    ========================================================= */
 
 function updateMusicButton(
@@ -1358,7 +1139,7 @@ function openLightbox(src) {
 
 
     image.alt =
-        `${CONFIG.groom} & ${CONFIG.bride}`;
+        `${WEDDING.groom} & ${WEDDING.bride}`;
 
 
     lightbox.classList.add(
@@ -1373,7 +1154,7 @@ function openLightbox(src) {
 
 
 /* =========================================================
-   CLOSE MODALS
+   CLOSE OVERLAYS
    ========================================================= */
 
 function closeAllOverlays() {
@@ -1526,9 +1307,6 @@ function initModals() {
    SCROLL REVEAL
    ========================================================= */
 
-let revealObserver = null;
-
-
 function initRevealAnimations() {
 
     const elements =
@@ -1548,15 +1326,13 @@ function initRevealAnimations() {
         !("IntersectionObserver" in window)
     ) {
 
-        elements.forEach(
-            (element) => {
+        elements.forEach((element) => {
 
-                element.classList.add(
-                    "visible"
-                );
+            element.classList.add(
+                "visible"
+            );
 
-            }
-        );
+        });
 
 
         return;
@@ -1570,26 +1346,24 @@ function initRevealAnimations() {
             new IntersectionObserver(
                 (entries) => {
 
-                    entries.forEach(
-                        (entry) => {
+                    entries.forEach((entry) => {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                                entry.target.classList.add(
-                                    "visible"
-                                );
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
 
-                                revealObserver.unobserve(
-                                    entry.target
-                                );
-
-                            }
+                            revealObserver.unobserve(
+                                entry.target
+                            );
 
                         }
-                    );
+
+                    });
 
                 },
                 {
@@ -1603,15 +1377,13 @@ function initRevealAnimations() {
     }
 
 
-    elements.forEach(
-        (element) => {
+    elements.forEach((element) => {
 
-            revealObserver.observe(
-                element
-            );
+        revealObserver.observe(
+            element
+        );
 
-        }
-    );
+    });
 
 }
 
@@ -1623,22 +1395,27 @@ function initRevealAnimations() {
 function escapeHTML(value) {
 
     return String(value)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"
@@ -1654,18 +1431,22 @@ function escapeHTML(value) {
 function escapeAttribute(value) {
 
     return String(value)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"

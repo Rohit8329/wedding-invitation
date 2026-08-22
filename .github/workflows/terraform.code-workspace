@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../devops-project/terraform"
+		},
+		{
+			"path": "../devops-project"
+		}
+	],
+	"settings": {}
+}
