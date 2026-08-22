@@ -1,6 +1,6 @@
 /* =========================================================
-   WEDDING / ENGAGEMENT CLIENT DATA
-   Rohan & Nikita
+   WEDDING / ENGAGEMENT DATA
+   ROHAN & NIKITA
    ========================================================= */
 
 const WEDDING = {
@@ -37,7 +37,31 @@ const WEDDING = {
 
 
     /* -----------------------------------------------------
-       EVENT
+       PHOTOS
+       ----------------------------------------------------- */
+
+    couplePhoto:
+        "assets/images/couple.jpg",
+
+    storyImage:
+        "assets/images/story.jpg",
+
+    familyPhotos: [
+        "assets/images/family-1.jpg",
+        "assets/images/family-2.jpg"
+    ],
+
+
+    /* -----------------------------------------------------
+       STORY
+       ----------------------------------------------------- */
+
+    storyText:
+        "Two beautiful journeys are coming together as Rohan and Nikita take the next step in their journey of love. With the blessings of their families and loved ones, they are delighted to celebrate this beautiful beginning with everyone who has been a part of their lives.",
+
+
+    /* -----------------------------------------------------
+       EVENTS
        ----------------------------------------------------- */
 
     events: [
@@ -69,15 +93,28 @@ const WEDDING = {
 
 
     /* -----------------------------------------------------
-       STORY
+       GALLERY
        ----------------------------------------------------- */
 
-    storyText:
-        "Two beautiful journeys are coming together as Rohan and Nikita take the next step in their journey of love. With the blessings of their families and loved ones, they are delighted to celebrate this beautiful beginning with everyone who has been a part of their lives.",
+    gallery: [
+
+        "assets/images/gallery/photo-1.jpg",
+
+        "assets/images/gallery/photo-2.jpg",
+
+        "assets/images/gallery/photo-3.jpg",
+
+        "assets/images/gallery/photo-4.jpg",
+
+        "assets/images/gallery/photo-5.jpg",
+
+        "assets/images/gallery/photo-6.jpg"
+
+    ],
 
 
     /* -----------------------------------------------------
-       RSVP
+       WHATSAPP
        ----------------------------------------------------- */
 
     whatsappNumber:
@@ -85,6 +122,11 @@ const WEDDING = {
 
     rsvpMessage:
         "Namaskar! I would love to attend the engagement celebration of Rohan & Nikita. Looking forward to celebrating this beautiful occasion with you.",
+
+
+    /* -----------------------------------------------------
+       PHONE
+       ----------------------------------------------------- */
 
     callNumber:
         "tel:+918329007550",
@@ -138,47 +180,10 @@ const WEDDING = {
 
 
     /* -----------------------------------------------------
-       IMAGES
-       ----------------------------------------------------- */
-
-    images: {
-
-        couple:
-            "assets/images/couple.jpg",
-
-        story:
-            "assets/images/story.jpg",
-
-        family1:
-            "assets/images/family-1.jpg",
-
-        family2:
-            "assets/images/family-2.jpg",
-
-        gallery: [
-
-            "assets/images/gallery/photo-1.jpg",
-
-            "assets/images/gallery/photo-2.jpg",
-
-            "assets/images/gallery/photo-3.jpg",
-
-            "assets/images/gallery/photo-4.jpg",
-
-            "assets/images/gallery/photo-5.jpg",
-
-            "assets/images/gallery/photo-6.jpg"
-
-        ]
-
-    },
-
-
-    /* -----------------------------------------------------
        MUSIC
        ----------------------------------------------------- */
 
-    music:
+    musicUrl:
         "assets/audio/music.mp3"
 
 };

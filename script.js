@@ -1,5 +1,6 @@
 /* =========================================================
-   WEDDING INVITATION
+   ROHAN & NIKITA
+   PREMIUM ENGAGEMENT INVITATION
    MAIN JAVASCRIPT
    ========================================================= */
 
@@ -17,44 +18,47 @@ let revealObserver = null;
    DOM READY
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    console.log(
-        `${WEDDING.groom} & ${WEDDING.bride} invitation loaded.`
-    );
+        console.log(
+            `${WEDDING.groom} & ${WEDDING.bride} invitation loaded.`
+        );
 
 
-    populateCoupleNames();
+        populateCoupleNames();
 
-    populateDates();
+        populateDates();
 
-    populateFamilies();
+        populateFamilies();
 
-    populatePhotos();
+        populatePhotos();
 
-    populateStory();
+        populateStory();
 
-    populateHashtag();
+        populateHashtag();
 
-    populateRSVP();
+        populateRSVP();
 
-    renderEvents();
+        renderEvents();
 
-    renderGallery();
+        renderGallery();
 
-    renderGuestInfo();
+        renderGuestInfo();
 
-    initCountdown();
+        initCountdown();
 
-    initMusic();
+        initMusic();
 
-    initOpeningScreen();
+        initOpeningScreen();
 
-    initModals();
+        initModals();
 
-    initRevealAnimations();
+        initRevealAnimations();
 
-});
+    }
+);
 
 
 /* =========================================================
@@ -65,48 +69,64 @@ function populateCoupleNames() {
 
     const groomElements = [
 
-        document.getElementById("opening-groom"),
+        document.getElementById(
+            "opening-groom"
+        ),
 
-        document.getElementById("hero-groom"),
+        document.getElementById(
+            "hero-groom"
+        ),
 
-        document.getElementById("footer-groom")
+        document.getElementById(
+            "footer-groom"
+        )
 
     ];
 
 
-    groomElements.forEach((element) => {
+    groomElements.forEach(
+        (element) => {
 
-        if (element) {
+            if (element) {
 
-            element.textContent =
-                WEDDING.groom;
+                element.textContent =
+                    WEDDING.groom;
+
+            }
 
         }
-
-    });
+    );
 
 
     const brideElements = [
 
-        document.getElementById("opening-bride"),
+        document.getElementById(
+            "opening-bride"
+        ),
 
-        document.getElementById("hero-bride"),
+        document.getElementById(
+            "hero-bride"
+        ),
 
-        document.getElementById("footer-bride")
+        document.getElementById(
+            "footer-bride"
+        )
 
     ];
 
 
-    brideElements.forEach((element) => {
+    brideElements.forEach(
+        (element) => {
 
-        if (element) {
+            if (element) {
 
-            element.textContent =
-                WEDDING.bride;
+                element.textContent =
+                    WEDDING.bride;
+
+            }
 
         }
-
-    });
+    );
 
 }
 
@@ -118,11 +138,15 @@ function populateCoupleNames() {
 function populateDates() {
 
     const openingDate =
-        document.getElementById("opening-date");
+        document.getElementById(
+            "opening-date"
+        );
 
 
     const heroDate =
-        document.getElementById("hero-date");
+        document.getElementById(
+            "hero-date"
+        );
 
 
     if (openingDate) {
@@ -150,11 +174,15 @@ function populateDates() {
 function populateFamilies() {
 
     const groomParents =
-        document.getElementById("groom-parents");
+        document.getElementById(
+            "groom-parents"
+        );
 
 
     const brideParents =
-        document.getElementById("bride-parents");
+        document.getElementById(
+            "bride-parents"
+        );
 
 
     if (groomParents) {
@@ -192,11 +220,15 @@ function populateFamilies() {
 function populatePhotos() {
 
     const couplePhoto =
-        document.getElementById("couple-photo");
+        document.getElementById(
+            "couple-photo"
+        );
 
 
     const storyImage =
-        document.getElementById("story-image");
+        document.getElementById(
+            "story-image"
+        );
 
 
     if (couplePhoto) {
@@ -252,7 +284,9 @@ function populateStory() {
 function populateHashtag() {
 
     const hashtag =
-        document.getElementById("hashtag");
+        document.getElementById(
+            "hashtag"
+        );
 
 
     if (hashtag) {
@@ -266,7 +300,7 @@ function populateHashtag() {
 
 
 /* =========================================================
-   RSVP
+   RSVP LINKS
    ========================================================= */
 
 function populateRSVP() {
@@ -335,59 +369,87 @@ function renderEvents() {
     container.innerHTML = "";
 
 
-    if (
-        !Array.isArray(WEDDING.events)
-    ) {
+    WEDDING.events.forEach(
+        (event) => {
 
-        return;
-
-    }
-
-
-    WEDDING.events.forEach((event) => {
-
-        const card =
-            document.createElement("div");
+            const card =
+                document.createElement(
+                    "div"
+                );
 
 
-        card.className =
-            "event-card reveal";
+            card.className =
+                "event-card reveal";
 
 
-        card.innerHTML = `
+            card.innerHTML = `
 
-            <h3>
-                ${escapeHTML(event.name)}
-            </h3>
+                <h3>
+                    ${escapeHTML(event.name)}
+                </h3>
 
-            <p class="event-date">
-                ${escapeHTML(event.date)}
-            </p>
+                <p class="event-date">
+                    ${escapeHTML(event.date)}
+                </p>
 
-            <p class="event-time">
-                ${escapeHTML(event.time)}
-            </p>
+                <p class="event-time">
+                    ${escapeHTML(event.time)}
+                </p>
 
-            <p class="event-action">
-                View complete details →
-            </p>
+                <p class="event-action">
+                    View complete details →
+                </p>
 
-        `;
-
-
-        card.addEventListener(
-            "click",
-            () => {
-
-                openEventModal(event);
-
-            }
-        );
+            `;
 
 
-        container.appendChild(card);
+            card.setAttribute(
+                "role",
+                "button"
+            );
 
-    });
+
+            card.setAttribute(
+                "tabindex",
+                "0"
+            );
+
+
+            card.addEventListener(
+                "click",
+                () => {
+
+                    openEventModal(event);
+
+                }
+            );
+
+
+            card.addEventListener(
+                "keydown",
+                (keyboardEvent) => {
+
+                    if (
+                        keyboardEvent.key === "Enter" ||
+                        keyboardEvent.key === " "
+                    ) {
+
+                        keyboardEvent.preventDefault();
+
+                        openEventModal(event);
+
+                    }
+
+                }
+            );
+
+
+            container.appendChild(
+                card
+            );
+
+        }
+    );
 
 }
 
@@ -414,20 +476,13 @@ function renderGallery() {
     container.innerHTML = "";
 
 
-    if (
-        !Array.isArray(WEDDING.gallery)
-    ) {
-
-        return;
-
-    }
-
-
     WEDDING.gallery.forEach(
         (src, index) => {
 
             const item =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             item.className =
@@ -435,16 +490,16 @@ function renderGallery() {
 
 
             const image =
-                document.createElement("img");
+                document.createElement(
+                    "img"
+                );
 
 
             image.src =
                 src;
 
-
             image.alt =
                 `${WEDDING.groom} & ${WEDDING.bride} - Memory ${index + 1}`;
-
 
             image.loading =
                 "lazy";
@@ -463,20 +518,25 @@ function renderGallery() {
 
 
             const overlay =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             overlay.className =
                 "gallery-overlay";
 
-
             overlay.innerHTML =
                 "⊕";
 
 
-            item.appendChild(image);
+            item.appendChild(
+                image
+            );
 
-            item.appendChild(overlay);
+            item.appendChild(
+                overlay
+            );
 
 
             item.addEventListener(
@@ -489,7 +549,9 @@ function renderGallery() {
             );
 
 
-            container.appendChild(item);
+            container.appendChild(
+                item
+            );
 
         }
     );
@@ -519,45 +581,42 @@ function renderGuestInfo() {
     container.innerHTML = "";
 
 
-    if (
-        !Array.isArray(WEDDING.guestInfo)
-    ) {
+    WEDDING.guestInfo.forEach(
+        (info) => {
 
-        return;
-
-    }
-
-
-    WEDDING.guestInfo.forEach((info) => {
-
-        const card =
-            document.createElement("div");
+            const card =
+                document.createElement(
+                    "div"
+                );
 
 
-        card.className =
-            "info-card reveal";
+            card.className =
+                "info-card reveal";
 
 
-        card.innerHTML = `
+            card.innerHTML = `
 
-            <span>
-                ${escapeHTML(info.icon)}
-            </span>
+                <span>
+                    ${escapeHTML(info.icon)}
+                </span>
 
-            <h3>
-                ${escapeHTML(info.title)}
-            </h3>
+                <h3>
+                    ${escapeHTML(info.title)}
+                </h3>
 
-            <p>
-                ${escapeHTML(info.desc)}
-            </p>
+                <p>
+                    ${escapeHTML(info.desc)}
+                </p>
 
-        `;
+            `;
 
 
-        container.appendChild(card);
+            container.appendChild(
+                card
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -575,23 +634,33 @@ function initCountdown() {
 
 
     const days =
-        document.getElementById("cd-days");
+        document.getElementById(
+            "cd-days"
+        );
 
 
     const hours =
-        document.getElementById("cd-hours");
+        document.getElementById(
+            "cd-hours"
+        );
 
 
     const minutes =
-        document.getElementById("cd-minutes");
+        document.getElementById(
+            "cd-minutes"
+        );
 
 
     const seconds =
-        document.getElementById("cd-seconds");
+        document.getElementById(
+            "cd-seconds"
+        );
 
 
     const countdown =
-        document.getElementById("countdown");
+        document.getElementById(
+            "countdown"
+        );
 
 
     const expired =
@@ -679,7 +748,9 @@ function initCountdown() {
         if (days) {
 
             days.textContent =
-                String(dayValue).padStart(
+                String(
+                    dayValue
+                ).padStart(
                     2,
                     "0"
                 );
@@ -690,7 +761,9 @@ function initCountdown() {
         if (hours) {
 
             hours.textContent =
-                String(hourValue).padStart(
+                String(
+                    hourValue
+                ).padStart(
                     2,
                     "0"
                 );
@@ -701,7 +774,9 @@ function initCountdown() {
         if (minutes) {
 
             minutes.textContent =
-                String(minuteValue).padStart(
+                String(
+                    minuteValue
+                ).padStart(
                     2,
                     "0"
                 );
@@ -712,7 +787,9 @@ function initCountdown() {
         if (seconds) {
 
             seconds.textContent =
-                String(secondValue).padStart(
+                String(
+                    secondValue
+                ).padStart(
                     2,
                     "0"
                 );
@@ -796,41 +873,44 @@ function initOpeningScreen() {
             }
 
 
-            setTimeout(() => {
+            setTimeout(
+                () => {
 
-                if (opening) {
+                    if (opening) {
 
-                    opening.classList.add(
-                        "hidden"
-                    );
+                        opening.classList.add(
+                            "hidden"
+                        );
 
-                }
-
-
-                if (main) {
-
-                    main.classList.remove(
-                        "hidden"
-                    );
-
-                }
+                    }
 
 
-                if (musicButton) {
+                    if (main) {
 
-                    musicButton.classList.remove(
-                        "hidden"
-                    );
+                        main.classList.remove(
+                            "hidden"
+                        );
 
-                }
-
-
-                startMusic();
+                    }
 
 
-                initRevealAnimations();
+                    if (musicButton) {
 
-            }, 900);
+                        musicButton.classList.remove(
+                            "hidden"
+                        );
+
+                    }
+
+
+                    startMusic();
+
+
+                    initRevealAnimations();
+
+                },
+                900
+            );
 
         }
     );
@@ -905,11 +985,9 @@ function initMusic() {
                 musicPlaying =
                     false;
 
-
                 button.classList.remove(
                     "playing"
                 );
-
 
                 updateMusicButton(
                     button,
@@ -957,41 +1035,45 @@ function startMusic() {
 
 
     audio.play()
-        .then(() => {
+        .then(
+            () => {
 
-            musicPlaying =
-                true;
-
-
-            if (button) {
-
-                button.classList.add(
-                    "playing"
-                );
+                musicPlaying =
+                    true;
 
 
-                updateMusicButton(
-                    button,
-                    true
+                if (button) {
+
+                    button.classList.add(
+                        "playing"
+                    );
+
+
+                    updateMusicButton(
+                        button,
+                        true
+                    );
+
+                }
+
+            }
+        )
+        .catch(
+            (error) => {
+
+                console.log(
+                    "Music playback was blocked:",
+                    error
                 );
 
             }
-
-        })
-        .catch((error) => {
-
-            console.log(
-                "Music playback was blocked:",
-                error
-            );
-
-        });
+        );
 
 }
 
 
 /* =========================================================
-   MUSIC ACCESSIBILITY
+   MUSIC BUTTON ACCESSIBILITY
    ========================================================= */
 
 function updateMusicButton(
@@ -1154,7 +1236,7 @@ function openLightbox(src) {
 
 
 /* =========================================================
-   CLOSE OVERLAYS
+   CLOSE MODALS
    ========================================================= */
 
 function closeAllOverlays() {
@@ -1326,13 +1408,15 @@ function initRevealAnimations() {
         !("IntersectionObserver" in window)
     ) {
 
-        elements.forEach((element) => {
+        elements.forEach(
+            (element) => {
 
-            element.classList.add(
-                "visible"
-            );
+                element.classList.add(
+                    "visible"
+                );
 
-        });
+            }
+        );
 
 
         return;
@@ -1346,24 +1430,26 @@ function initRevealAnimations() {
             new IntersectionObserver(
                 (entries) => {
 
-                    entries.forEach((entry) => {
+                    entries.forEach(
+                        (entry) => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                            if (
+                                entry.isIntersecting
+                            ) {
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
+                                entry.target.classList.add(
+                                    "visible"
+                                );
 
 
-                            revealObserver.unobserve(
-                                entry.target
-                            );
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
 
                         }
-
-                    });
+                    );
 
                 },
                 {
@@ -1377,13 +1463,15 @@ function initRevealAnimations() {
     }
 
 
-    elements.forEach((element) => {
+    elements.forEach(
+        (element) => {
 
-        revealObserver.observe(
-            element
-        );
+            revealObserver.observe(
+                element
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -1395,27 +1483,22 @@ function initRevealAnimations() {
 function escapeHTML(value) {
 
     return String(value)
-
         .replace(
             /&/g,
             "&amp;"
         )
-
         .replace(
             /</g,
             "&lt;"
         )
-
         .replace(
             />/g,
             "&gt;"
         )
-
         .replace(
             /"/g,
             "&quot;"
         )
-
         .replace(
             /'/g,
             "&#039;"
@@ -1431,22 +1514,18 @@ function escapeHTML(value) {
 function escapeAttribute(value) {
 
     return String(value)
-
         .replace(
             /&/g,
             "&amp;"
         )
-
         .replace(
             /"/g,
             "&quot;"
         )
-
         .replace(
             /</g,
             "&lt;"
         )
-
         .replace(
             />/g,
             "&gt;"
