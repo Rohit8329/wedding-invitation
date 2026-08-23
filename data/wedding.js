@@ -30,10 +30,10 @@ const WEDDING = {
        ----------------------------------------------------- */
 
     engagementDateISO:
-        "2026-08-30T12:00:00+05:30",
+        "2026-09-05T09:00:00+05:30",
 
     engagementDateDisplay:
-        "30 August 2026",
+        "05 September 2026",
 
 
     /* -----------------------------------------------------
@@ -71,19 +71,19 @@ const WEDDING = {
                 "Engagement Ceremony",
 
             date:
-                "Sunday, 30 August 2026",
+                "Saturday, 30 September 2026",
 
             time:
-                "12:00 PM",
+                "09:00 AM",
 
             venue:
                 "Engagement Ceremony",
 
             address:
-                "Maharashtra, India",
+                "Raaga Heritage, Laxmi Chowk, wakad-hinkewadi road, Pune, Maharashtra, India",
 
             mapUrl:
-                "https://maps.google.com/?q=Maharashtra",
+                "https://maps.app.goo.gl/HGB8EmudpBnPbJm28",
 
             dressCode:
                 "Traditional / Festive Attire"
