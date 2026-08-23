@@ -3808,3 +3808,97 @@ a:focus-visible,
     }
 
 }
+
+/* =========================================================
+   TEMPLE / FORT PITCHER BACKGROUND
+   ========================================================= */
+
+.main-website {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative temple / fort pitcher */
+.main-website::before {
+    content: "";
+    position: absolute;
+
+    width: min(520px, 65vw);
+    height: min(520px, 65vw);
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    background-image: url("../images/temple-pitcher.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+
+    opacity: 0.10;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Keep all website content above the decoration */
+.main-website > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================================
+   MAIN WEBSITE TEMPLE / FORT DECORATION
+   ========================================================= */
+
+#main-content {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Temple / Fort pitcher decorative background */
+#main-content::before {
+    content: "";
+
+    position: absolute;
+
+    width: min(560px, 70vw);
+    height: min(560px, 70vw);
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    background-image:
+        url("assets/images/temple-pitcher.png");
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center bottom;
+
+    background-size:
+        contain;
+
+    opacity:
+        0.10;
+
+    pointer-events:
+        none;
+
+    z-index:
+        0;
+}
+
+
+/* Keep all main website content above the decoration */
+#main-content > * {
+    position:
+        relative;
+
+    z-index:
+        1;
+}
