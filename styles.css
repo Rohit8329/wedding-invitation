@@ -62,25 +62,30 @@
 
 * {
 
-    margin: 0;
+    margin:
+        0;
 
-    padding: 0;
+    padding:
+        0;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
 }
 
 
 html {
 
-    scroll-behavior: smooth;
+    scroll-behavior:
+        smooth;
 
 }
 
 
 body {
 
-    min-height: 100vh;
+    min-height:
+        100vh;
 
     background:
         var(--cream);
@@ -112,9 +117,11 @@ a {
 
 img {
 
-    display: block;
+    display:
+        block;
 
-    max-width: 100%;
+    max-width:
+        100%;
 
 }
 
@@ -124,30 +131,35 @@ input,
 textarea,
 select {
 
-    font: inherit;
+    font:
+        inherit;
 
 }
 
 
 button {
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
 }
 
 
 a {
 
-    color: inherit;
+    color:
+        inherit;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
 }
 
 
 .hidden {
 
-    display: none !important;
+    display:
+        none !important;
 
 }
 
@@ -158,24 +170,31 @@ a {
 
 .background-decoration {
 
-    position: fixed;
+    position:
+        fixed;
 
-    inset: 0;
+    inset:
+        0;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
-    z-index: -1;
+    z-index:
+        -1;
 
 }
 
 
 .bg-circle {
 
-    position: absolute;
+    position:
+        absolute;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     filter:
         blur(2px);
@@ -1110,6 +1129,7 @@ p {
 
 /* =========================================================
    8. PHOTO INTRO
+   COUPLE PHOTO - SMALLER SIZE
    ========================================================= */
 
 .photo-intro {
@@ -1118,7 +1138,7 @@ p {
         40px;
 
     padding-bottom:
-        110px;
+        90px;
 
 }
 
@@ -1129,13 +1149,13 @@ p {
         relative;
 
     width:
-        min(900px, 100%);
+        min(430px, 82%);
 
     margin:
         0 auto;
 
     padding:
-        15px;
+        12px;
 
     background:
         var(--white);
@@ -1152,10 +1172,10 @@ p {
         100%;
 
     height:
-        min(650px, 65vw);
+        320px;
 
     min-height:
-        400px;
+        0;
 
     object-fit:
         cover;
@@ -1169,7 +1189,7 @@ p {
         absolute;
 
     inset:
-        28px;
+        22px;
 
     border:
         1px solid rgba(255,255,255,0.7);
@@ -1627,13 +1647,14 @@ p {
 
 
 /* =========================================================
-   12. STORY
+   12. STORY / OUR MEMORIES
+   TEMPORARILY HIDDEN
    ========================================================= */
 
 .story {
 
-    background:
-        var(--white);
+    display:
+        none !important;
 
 }
 
@@ -3516,10 +3537,28 @@ a:focus-visible,
     }
 
 
+    /* -----------------------------------------------------
+       COUPLE PHOTO - SMALLER ON MOBILE
+       ----------------------------------------------------- */
+
+    .photo-intro {
+
+        padding-top:
+            25px;
+
+        padding-bottom:
+            75px;
+
+    }
+
+
     .section-photo-frame {
 
+        width:
+            min(320px, 78%);
+
         padding:
-            8px;
+            7px;
 
     }
 
@@ -3527,7 +3566,7 @@ a:focus-visible,
     .section-photo-frame img {
 
         height:
-            500px;
+            240px;
 
         min-height:
             0;
@@ -3538,7 +3577,7 @@ a:focus-visible,
     .photo-frame-corner {
 
         inset:
-            18px;
+            14px;
 
     }
 
