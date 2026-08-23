@@ -838,7 +838,89 @@ p {
 
 
 /* =========================================================
-   7. MAIN HERO
+   7. MAIN WEBSITE
+   TEMPLE / FORT PITCHER BACKGROUND
+   ========================================================= */
+
+#main-content {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* ---------------------------------------------------------
+   TEMPLE / FORT PITCHER
+   --------------------------------------------------------- */
+
+#main-content::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        100px;
+
+    left:
+        50%;
+
+    width:
+        min(650px, 80vw);
+
+    height:
+        min(650px, 80vw);
+
+    transform:
+        translateX(-50%);
+
+    background-image:
+        url("assets/images/temple-pitcher.png");
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center;
+
+    background-size:
+        contain;
+
+    opacity:
+        0.10;
+
+    pointer-events:
+        none;
+
+    z-index:
+        0;
+
+}
+
+
+/* ---------------------------------------------------------
+   KEEP MAIN WEBSITE CONTENT ABOVE PITCHER
+   --------------------------------------------------------- */
+
+#main-content > * {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+}
+
+
+/* =========================================================
+   8. MAIN HERO
    ========================================================= */
 
 .hero {
@@ -858,11 +940,16 @@ p {
     padding:
         120px 7% 90px;
 
+    /*
+       Slight transparency allows the temple / fort
+       pitcher to remain visible behind the hero.
+    */
+
     background:
         linear-gradient(
             180deg,
-            #fbf5ec 0%,
-            #f7eee1 100%
+            rgba(251, 245, 236, 0.88) 0%,
+            rgba(247, 238, 225, 0.88) 100%
         );
 
     text-align:
@@ -1128,7 +1215,7 @@ p {
 
 
 /* =========================================================
-   8. PHOTO INTRO
+   9. PHOTO INTRO
    COUPLE PHOTO - SMALLER SIZE
    ========================================================= */
 
@@ -1201,13 +1288,13 @@ p {
 
 
 /* =========================================================
-   9. FAMILIES
+   10. FAMILIES
    ========================================================= */
 
 .families {
 
     background:
-        var(--white);
+        rgba(255,255,255,0.94);
 
 }
 
@@ -1312,7 +1399,7 @@ p {
 
 
 /* =========================================================
-   10. COUNTDOWN
+   11. COUNTDOWN
    ========================================================= */
 
 .countdown-section {
@@ -1320,8 +1407,8 @@ p {
     background:
         linear-gradient(
             145deg,
-            #3a140b,
-            #5b2415
+            rgba(58,20,11,0.98),
+            rgba(91,36,21,0.98)
         );
 
     color:
@@ -1447,13 +1534,13 @@ p {
 
 
 /* =========================================================
-   11. EVENTS
+   12. EVENTS
    ========================================================= */
 
 .events {
 
     background:
-        var(--cream);
+        rgba(248,241,230,0.94);
 
 }
 
@@ -1490,7 +1577,7 @@ p {
         1px solid var(--border);
 
     background:
-        rgba(255,255,255,0.65);
+        rgba(255,255,255,0.72);
 
     text-align:
         center;
@@ -1647,7 +1734,7 @@ p {
 
 
 /* =========================================================
-   12. STORY / OUR MEMORIES
+   13. STORY / OUR MEMORIES
    TEMPORARILY HIDDEN
    ========================================================= */
 
@@ -1800,13 +1887,13 @@ p {
 
 
 /* =========================================================
-   13. GALLERY
+   14. GALLERY
    ========================================================= */
 
 .gallery {
 
     background:
-        var(--cream);
+        rgba(248,241,230,0.94);
 
 }
 
@@ -1920,13 +2007,13 @@ p {
 
 
 /* =========================================================
-   14. RSVP
+   15. RSVP
    ========================================================= */
 
 .rsvp {
 
     background:
-        var(--white);
+        rgba(255,255,255,0.94);
 
 }
 
@@ -1948,8 +2035,8 @@ p {
     background:
         linear-gradient(
             145deg,
-            #f8efe2,
-            #eee0cc
+            rgba(248,239,226,0.96),
+            rgba(238,224,204,0.96)
         );
 
     text-align:
@@ -2161,13 +2248,13 @@ p {
 
 
 /* =========================================================
-   15. GUEST INFORMATION
+   16. GUEST INFORMATION
    ========================================================= */
 
 .guest-info {
 
     background:
-        var(--cream);
+        rgba(248,241,230,0.94);
 
 }
 
@@ -2201,7 +2288,7 @@ p {
         1px solid var(--border);
 
     background:
-        rgba(255,255,255,0.55);
+        rgba(255,255,255,0.60);
 
     text-align:
         center;
@@ -2255,7 +2342,7 @@ p {
 
 
 /* =========================================================
-   16. FOOTER
+   17. FOOTER
    ========================================================= */
 
 .footer {
@@ -2386,7 +2473,7 @@ p {
 
 
 /* =========================================================
-   17. MUSIC BUTTON
+   18. MUSIC BUTTON
    ========================================================= */
 
 .music-toggle {
@@ -2480,7 +2567,7 @@ p {
 
 
 /* =========================================================
-   18. EVENT MODAL
+   19. EVENT MODAL
    ========================================================= */
 
 .modal {
@@ -2659,7 +2746,7 @@ p {
 
 
 /* =========================================================
-   19. LIGHTBOX
+   20. LIGHTBOX
    ========================================================= */
 
 .lightbox {
@@ -2764,7 +2851,7 @@ p {
 
 
 /* =========================================================
-   20. SCROLL REVEAL
+   21. SCROLL REVEAL
    ========================================================= */
 
 .reveal {
@@ -2794,7 +2881,7 @@ p {
 
 
 /* =========================================================
-   21. ACCESSIBILITY
+   22. ACCESSIBILITY
    ========================================================= */
 
 button:focus-visible,
@@ -2811,12 +2898,10 @@ a:focus-visible,
 
 
 /* =========================================================
-   22. TABLET
+   23. TABLET
    ========================================================= */
 
-@media (
-    max-width: 900px
-) {
+@media (max-width: 900px) {
 
     .section {
 
@@ -2880,11 +2965,32 @@ a:focus-visible,
 
     }
 
+
+    /*
+       Slightly smaller pitcher on tablet
+    */
+
+    #main-content::before {
+
+        width:
+            min(560px, 78vw);
+
+        height:
+            min(560px, 78vw);
+
+        top:
+            120px;
+
+        opacity:
+            0.09;
+
+    }
+
 }
 
 
 /* =========================================================
-   23. MOBILE
+   24. MOBILE
    ========================================================= */
 
 @media (max-width: 650px) {
@@ -2893,6 +2999,30 @@ a:focus-visible,
 
         padding:
             75px 20px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE TEMPLE / FORT PITCHER
+       ----------------------------------------------------- */
+
+    #main-content::before {
+
+        top:
+            100px;
+
+        width:
+            min(430px, 95vw);
+
+        height:
+            min(430px, 95vw);
+
+        opacity:
+            0.08;
+
+        background-position:
+            center top;
 
     }
 
@@ -3172,7 +3302,6 @@ a:focus-visible,
 
     /* -----------------------------------------------------
        VERY SHORT PHONES
-       Examples: 568px, 600px height devices
        ----------------------------------------------------- */
 
     @media (max-height: 700px) {
@@ -3510,6 +3639,13 @@ a:focus-visible,
         padding:
             100px 20px 70px;
 
+        background:
+            linear-gradient(
+                180deg,
+                rgba(251,245,236,0.84) 0%,
+                rgba(247,238,225,0.84) 100%
+            );
+
     }
 
 
@@ -3538,7 +3674,7 @@ a:focus-visible,
 
 
     /* -----------------------------------------------------
-       COUPLE PHOTO - SMALLER ON MOBILE
+       COUPLE PHOTO
        ----------------------------------------------------- */
 
     .photo-intro {
@@ -3582,6 +3718,10 @@ a:focus-visible,
     }
 
 
+    /* -----------------------------------------------------
+       FAMILIES
+       ----------------------------------------------------- */
+
     .families-grid {
 
         grid-template-columns:
@@ -3608,6 +3748,10 @@ a:focus-visible,
 
     }
 
+
+    /* -----------------------------------------------------
+       COUNTDOWN
+       ----------------------------------------------------- */
 
     .countdown {
 
@@ -3649,6 +3793,10 @@ a:focus-visible,
     }
 
 
+    /* -----------------------------------------------------
+       EVENTS
+       ----------------------------------------------------- */
+
     .event-card {
 
         padding:
@@ -3656,6 +3804,10 @@ a:focus-visible,
 
     }
 
+
+    /* -----------------------------------------------------
+       STORY
+       ----------------------------------------------------- */
 
     .story-image-wrap img {
 
@@ -3676,6 +3828,10 @@ a:focus-visible,
     }
 
 
+    /* -----------------------------------------------------
+       GALLERY
+       ----------------------------------------------------- */
+
     .gallery-grid {
 
         grid-template-columns:
@@ -3686,6 +3842,10 @@ a:focus-visible,
 
     }
 
+
+    /* -----------------------------------------------------
+       RSVP
+       ----------------------------------------------------- */
 
     .rsvp-card {
 
@@ -3722,6 +3882,10 @@ a:focus-visible,
     }
 
 
+    /* -----------------------------------------------------
+       MODAL
+       ----------------------------------------------------- */
+
     .modal-box {
 
         padding:
@@ -3738,6 +3902,10 @@ a:focus-visible,
     }
 
 
+    /* -----------------------------------------------------
+       LIGHTBOX
+       ----------------------------------------------------- */
+
     .lightbox {
 
         padding:
@@ -3745,6 +3913,10 @@ a:focus-visible,
 
     }
 
+
+    /* -----------------------------------------------------
+       MUSIC
+       ----------------------------------------------------- */
 
     .music-toggle {
 
@@ -3766,12 +3938,10 @@ a:focus-visible,
 
 
 /* =========================================================
-   24. REDUCED MOTION
+   25. REDUCED MOTION
    ========================================================= */
 
-@media (
-    prefers-reduced-motion: reduce
-) {
+@media (prefers-reduced-motion: reduce) {
 
     html {
 
@@ -3807,98 +3977,4 @@ a:focus-visible,
 
     }
 
-}
-
-/* =========================================================
-   TEMPLE / FORT PITCHER BACKGROUND
-   ========================================================= */
-
-.main-website {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Decorative temple / fort pitcher */
-.main-website::before {
-    content: "";
-    position: absolute;
-
-    width: min(520px, 65vw);
-    height: min(520px, 65vw);
-
-    left: 50%;
-    bottom: 0;
-
-    transform: translateX(-50%);
-
-    background-image: url("../images/temple-pitcher.png");
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    background-size: contain;
-
-    opacity: 0.10;
-
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Keep all website content above the decoration */
-.main-website > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* =========================================================
-   MAIN WEBSITE TEMPLE / FORT DECORATION
-   ========================================================= */
-
-#main-content {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Temple / Fort pitcher decorative background */
-#main-content::before {
-    content: "";
-
-    position: absolute;
-
-    width: min(560px, 70vw);
-    height: min(560px, 70vw);
-
-    left: 50%;
-    bottom: 0;
-
-    transform: translateX(-50%);
-
-    background-image:
-        url("assets/images/temple-pitcher.png");
-
-    background-repeat:
-        no-repeat;
-
-    background-position:
-        center bottom;
-
-    background-size:
-        contain;
-
-    opacity:
-        0.10;
-
-    pointer-events:
-        none;
-
-    z-index:
-        0;
-}
-
-
-/* Keep all main website content above the decoration */
-#main-content > * {
-    position:
-        relative;
-
-    z-index:
-        1;
 }
