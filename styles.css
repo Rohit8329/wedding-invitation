@@ -2866,9 +2866,7 @@ a:focus-visible,
    23. MOBILE
    ========================================================= */
 
-@media (
-    max-width: 650px
-) {
+@media (max-width: 650px) {
 
     .section {
 
@@ -2878,10 +2876,32 @@ a:focus-visible,
     }
 
 
+    /* -----------------------------------------------------
+       OPENING SCREEN
+       ----------------------------------------------------- */
+
     .opening-screen {
 
+        width:
+            100%;
+
+        height:
+            100dvh;
+
+        min-height:
+            100dvh;
+
+        max-height:
+            100dvh;
+
         padding:
-            12px;
+            max(12px, env(safe-area-inset-top))
+            max(12px, env(safe-area-inset-right))
+            max(12px, env(safe-area-inset-bottom))
+            max(12px, env(safe-area-inset-left));
+
+        overflow:
+            hidden;
 
     }
 
@@ -2889,23 +2909,125 @@ a:focus-visible,
     .opening-screen::before {
 
         inset:
-            10px;
+            9px;
 
     }
 
 
     .opening-card {
 
+        width:
+            100%;
+
+        max-width:
+            520px;
+
+        max-height:
+            calc(
+                100dvh
+                - max(24px, env(safe-area-inset-top))
+                - max(24px, env(safe-area-inset-bottom))
+                - 18px
+            );
+
         padding:
-            45px 20px;
+            24px 16px;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        overflow:
+            hidden;
+
+    }
+
+
+    .opening-top-line {
+
+        width:
+            80px;
+
+        margin:
+            0 auto 14px;
+
+    }
+
+
+    .opening-bottom-line {
+
+        width:
+            80px;
+
+        margin:
+            18px auto 0;
+
+    }
+
+
+    .ganesha-symbol {
+
+        font-size:
+            38px;
+
+        margin-bottom:
+            10px;
+
+        line-height:
+            1;
 
     }
 
 
     .sanskrit-line {
 
+        width:
+            100%;
+
+        max-width:
+            390px;
+
+        margin:
+            0 auto 10px;
+
         font-size:
-            13px;
+            11px;
+
+        line-height:
+            1.55;
+
+    }
+
+
+    .opening-blessing {
+
+        font-size:
+            8px;
+
+        line-height:
+            1.3;
+
+        letter-spacing:
+            0.12em;
+
+    }
+
+
+    .opening-names {
+
+        width:
+            100%;
+
+        margin:
+            18px 0 10px;
 
     }
 
@@ -2913,15 +3035,38 @@ a:focus-visible,
     .opening-names h1 {
 
         font-size:
-            clamp(55px, 18vw, 78px);
+            clamp(48px, 17vw, 72px);
+
+        line-height:
+            0.78;
 
     }
 
 
     .opening-weds {
 
+        margin:
+            8px 0;
+
         font-size:
-            40px;
+            34px;
+
+        line-height:
+            0.9;
+
+    }
+
+
+    .opening-divider {
+
+        width:
+            100%;
+
+        gap:
+            10px;
+
+        margin:
+            14px auto;
 
     }
 
@@ -2929,10 +3074,412 @@ a:focus-visible,
     .opening-divider span {
 
         width:
-            50px;
+            min(55px, 18vw);
 
     }
 
+
+    .opening-event {
+
+        font-size:
+            8px;
+
+        line-height:
+            1.3;
+
+        letter-spacing:
+            0.22em;
+
+    }
+
+
+    .opening-tagline {
+
+        margin-top:
+            6px;
+
+        font-size:
+            14px;
+
+        line-height:
+            1.25;
+
+    }
+
+
+    .opening-date {
+
+        margin-top:
+            9px;
+
+        font-size:
+            16px;
+
+        line-height:
+            1.2;
+
+    }
+
+
+    .open-button {
+
+        margin-top:
+            17px;
+
+        padding:
+            11px 18px;
+
+        gap:
+            12px;
+
+        font-size:
+            9px;
+
+        line-height:
+            1;
+
+    }
+
+
+    .open-button strong {
+
+        font-size:
+            15px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       VERY SHORT PHONES
+       Examples: 568px, 600px height devices
+       ----------------------------------------------------- */
+
+    @media (max-height: 700px) {
+
+        .opening-card {
+
+            padding:
+                16px 14px;
+
+        }
+
+
+        .opening-top-line {
+
+            margin-bottom:
+                9px;
+
+        }
+
+
+        .ganesha-symbol {
+
+            font-size:
+                32px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .sanskrit-line {
+
+            font-size:
+                10px;
+
+            line-height:
+                1.4;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .opening-blessing {
+
+            font-size:
+                7px;
+
+        }
+
+
+        .opening-names {
+
+            margin:
+                13px 0 7px;
+
+        }
+
+
+        .opening-names h1 {
+
+            font-size:
+                clamp(43px, 15vw, 64px);
+
+        }
+
+
+        .opening-weds {
+
+            margin:
+                5px 0;
+
+            font-size:
+                29px;
+
+        }
+
+
+        .opening-divider {
+
+            margin:
+                10px auto;
+
+        }
+
+
+        .opening-event {
+
+            font-size:
+                7px;
+
+        }
+
+
+        .opening-tagline {
+
+            margin-top:
+                4px;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .opening-date {
+
+            margin-top:
+                6px;
+
+            font-size:
+                15px;
+
+        }
+
+
+        .open-button {
+
+            margin-top:
+                12px;
+
+            padding:
+                10px 16px;
+
+            font-size:
+                8px;
+
+        }
+
+
+        .opening-bottom-line {
+
+            margin-top:
+                12px;
+
+        }
+
+    }
+
+
+    /* -----------------------------------------------------
+       EXTRA SHORT PHONES
+       ----------------------------------------------------- */
+
+    @media (max-height: 620px) {
+
+        .opening-card {
+
+            padding:
+                10px 12px;
+
+        }
+
+
+        .opening-top-line {
+
+            width:
+                65px;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .opening-bottom-line {
+
+            width:
+                65px;
+
+            margin-top:
+                8px;
+
+        }
+
+
+        .ganesha-symbol {
+
+            font-size:
+                27px;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .sanskrit-line {
+
+            font-size:
+                8.5px;
+
+            line-height:
+                1.3;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .opening-blessing {
+
+            font-size:
+                6.5px;
+
+        }
+
+
+        .opening-names {
+
+            margin:
+                9px 0 5px;
+
+        }
+
+
+        .opening-names h1 {
+
+            font-size:
+                clamp(38px, 13vw, 55px);
+
+        }
+
+
+        .opening-weds {
+
+            margin:
+                3px 0;
+
+            font-size:
+                25px;
+
+        }
+
+
+        .opening-divider {
+
+            gap:
+                7px;
+
+            margin:
+                7px auto;
+
+        }
+
+
+        .opening-divider span {
+
+            width:
+                38px;
+
+        }
+
+
+        .opening-divider i {
+
+            font-size:
+                11px;
+
+        }
+
+
+        .opening-event {
+
+            font-size:
+                6px;
+
+            letter-spacing:
+                0.18em;
+
+        }
+
+
+        .opening-tagline {
+
+            margin-top:
+                3px;
+
+            font-size:
+                11px;
+
+        }
+
+
+        .opening-date {
+
+            margin-top:
+                4px;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .open-button {
+
+            margin-top:
+                8px;
+
+            padding:
+                8px 13px;
+
+            gap:
+                9px;
+
+            font-size:
+                7px;
+
+        }
+
+
+        .open-button strong {
+
+            font-size:
+                12px;
+
+        }
+
+    }
+
+
+    /* -----------------------------------------------------
+       MAIN WEBSITE MOBILE
+       ----------------------------------------------------- */
 
     .hero {
 
