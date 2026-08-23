@@ -71,7 +71,7 @@ const WEDDING = {
                 "Engagement Ceremony",
 
             date:
-                "Saturday, 30 September 2026",
+                "Saturday, 05 September 2026",
 
             time:
                 "09:00 AM",
@@ -80,7 +80,7 @@ const WEDDING = {
                 "Engagement Ceremony",
 
             address:
-                "Raaga Heritage, Laxmi Chowk, wakad-hinkewadi road, Pune, Maharashtra, India",
+                "Raaga Heritage Banquets & Lawns, Laxmi Chowk, wakad-hinkewadi road, Pune, Maharashtra, India",
 
             mapUrl:
                 "https://maps.app.goo.gl/HGB8EmudpBnPbJm28",
