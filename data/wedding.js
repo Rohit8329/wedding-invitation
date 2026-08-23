@@ -80,7 +80,7 @@ const WEDDING = {
                 "Engagement Ceremony",
 
             address:
-                "Raaga Heritage Banquets & Lawns, Laxmi Chowk, wakad-hinkewadi road, Pune, Maharashtra, India",
+                "Raaga Heritage Banquets & Lawns, Laxmi Chowk, Wakad-Hinjewadi road, Pune, Maharashtra, India",
 
             mapUrl:
                 "https://maps.app.goo.gl/HGB8EmudpBnPbJm28",
