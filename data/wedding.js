@@ -71,7 +71,7 @@ const WEDDING = {
                 "Engagement Ceremony",
 
             date:
-                "Saturday, 05 September 2026",
+                "Saturday, 25 September 2026",
 
             time:
                 "09:00 AM",
