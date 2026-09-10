@@ -30,10 +30,10 @@ const WEDDING = {
        ----------------------------------------------------- */
 
     engagementDateISO:
-        "2026-09-25T09:00:00+05:30",
+        "2026-10-25T09:00:00+05:30",
 
     engagementDateDisplay:
-        "25 September 2026",
+        "25 October 2026",
 
 
     /* -----------------------------------------------------
@@ -71,7 +71,7 @@ const WEDDING = {
                 "Engagement Ceremony",
 
             date:
-                "Saturday, 25 September 2026",
+                "Sunday, 25 October 2026",
 
             time:
                 "09:00 AM",
