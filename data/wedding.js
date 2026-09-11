@@ -48,7 +48,6 @@ const WEDDING = {
 
     familyPhotos: [
         "assets/images/family-1.jpg",
-        "assets/images/family-2.jpg"
     ],
 
 
@@ -98,17 +97,7 @@ const WEDDING = {
 
     gallery: [
 
-        "assets/images/gallery/photo-1.jpg",
-
-        "assets/images/gallery/photo-2.jpg",
-
-        "assets/images/gallery/photo-3.jpg",
-
-        "assets/images/gallery/photo-4.jpg",
-
-        "assets/images/gallery/photo-5.jpg",
-
-        "assets/images/gallery/photo-6.jpg"
+        "assets/gallery/photo-1.jpg"
 
     ],
 
